@@ -131,5 +131,5 @@ MEDIA_ROOT = BASE_DIR/'Media'
 
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://walid-ayan-kawsar.onrender.com',
+    'https://walid-ayaan-kawsar.onrender.com',
 ]
