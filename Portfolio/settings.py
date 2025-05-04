@@ -133,3 +133,6 @@ MEDIA_ROOT = BASE_DIR/'Media'
 CSRF_TRUSTED_ORIGINS = [
     'https://walid-ayaan-kawsar.onrender.com',
 ]
+
+ALLOWED_HOSTS = ['walid-ayaan-kawsar.onrender.com', 'localhost', '127.0.0.1']
+
