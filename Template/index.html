@@ -1,0 +1,328 @@
+<!doctype html>
+
+<html lang="en">
+   
+   
+    <head>
+       
+       
+        <!-- META -->
+        <meta charset="utf-8">
+        <meta name="robots" content="noodp">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+
+       
+        <!-- PAGE TITLE -->
+        <title>KAWSAR</title>
+       
+        <!-- FAVICON -->
+        <link rel="shortcut icon" href="static/img/favicon.png">
+       
+        <!-- FONTS -->
+        <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&amp;subset=latin-ext" rel="stylesheet">
+       
+        <!-- STYLESHEETS -->
+        <link rel="stylesheet" type="text/css" href="static/css/plugins.css">
+        <link rel="stylesheet" type="text/css" href="static/css/main.css">
+        
+        
+    </head>
+
+   
+    <body>
+    
+       
+        <!-- PRELOADER -->
+        <div class="preloader">
+           
+            <div class="spinner"></div>
+            
+        </div>
+        <!-- /PRELOADER -->
+    
+        
+        <!-- IMAGE CONTAINER -->
+        <div class="image-container">
+           
+            <div class="background-img"></div>
+
+        </div>
+        <!-- /IMAGE CONTAINER -->
+
+
+        <!-- CONTENT AREA -->
+        <div class="content-area">
+
+
+            <!-- CONTENT AREA INNER --> 
+            <div class="content-area-inner">
+
+
+                <!-- INTRO -->
+                <section id="intro">
+
+
+                    <!-- CONTAINER MID -->
+                    <div class="container-mid">
+
+                       
+                        <!-- ANIMATION CONTAINER -->
+                        <div class="animation-container animation-fade-right" data-animation-delay="0">
+                        
+                            <h1>Hi, I'm a Web Developer. I build things for web.</h1>
+                        
+                        </div>
+                        <!-- /ANIMATION CONTAINER -->
+                        
+                        
+                        <!-- ANIMATION CONTAINER -->
+                        <div class="animation-container animation-fade-right" data-animation-delay="200">
+                           
+                            <a href="#about" class="smooth-scroll">Learn More<div class="circle"><i class="fa fa-angle-down" aria-hidden="true"></i><i class="fa fa-angle-down" aria-hidden="true"></i></div></a>
+                            
+                        </div>
+                        <!-- /ANIMATION CONTAINER -->
+
+
+                    </div>
+                    <!-- /CONTAINER MID -->
+
+
+                </section>
+                <!-- /INTRO -->
+
+
+                <!-- ABOUT -->
+                <section id="about">
+
+
+                    <h3 class="headline scroll-animated">About Me</h3>
+                    
+                    <div class="profile-picture scroll-animated">
+                        <img src="{{ profile.picture.url }}" alt="Profile Picture">
+                    </div>
+                    
+                    
+                    <p class="scroll-animated">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur mattis magna ac justo tincidunt, nec rhoncus leo rutrum. Duis mattis, neque id consectetur gravida, ligula massa consequat mi, id ultricies massa mauris eu augue. Donec dictum diam vitae dui iaculis, vitae laoreet sem molestie. Suspendisse hendrerit interdum euismod.</p>
+
+                    <p class="scroll-animated">In dui augue, pretium eget vulputate at, maximus eget augue. Vestibulum porttitor a nisl in rhoncus. Etiam libero est, pellentesque eleifend arcu at, congue gravida ex. Sed et nisl ultrices, mattis purus et, commodo quam. Etiam lacus est, faucibus ut mattis sed, mattis non enim. Maecenas elementum malesuada lorem, ut vestibulum erat iaculis non. Donec nec diam id dolor hendrerit sollicitudin.</p>
+
+
+                </section>
+                <!-- /ABOUT -->
+
+                <!-- CLIENTS -->
+                <section id="clients">
+
+                    <h3 class="headline scroll-animated">Clients</h3>
+
+                    <div class="row clients scroll-animated">
+                            
+                        {% for client in clients %}    
+                        <div class="col-md-3 col-xs-6"><img class="img-responsive" src="{{client.Picture.url}}" alt="client"></div>
+                        {% endfor %}
+                            
+                    </div>
+                </section>
+                <!-- /CLIENTS -->
+                
+                
+                <!-- SERVICE -->
+                <section id="service">
+
+
+                    <h3 class="headline scroll-animated">Services</h3>
+                    
+                    
+                    <!-- SERVICE LIST -->
+                    {% for services in service  %}
+                    <ul class="services-list">
+                       
+                       
+                        <!-- SERVICE ITEM -->
+                        <li class="service-item scroll-animated">
+                           
+                            <button class="btn btn-primary collapsed" type="button" data-toggle="collapse" data-target="#collapse-item-{{ forloop.counter }}" aria-expanded="false">{{ services.name }}</button>
+                            
+                            <!-- COLLAPSE CONTENT -->
+                            <div class="collapse" id="collapse-item-{{ forloop.counter }}">
+                               
+                               
+                                <!-- COLLAPSE CONTENT INNER -->
+                                <div class="well">
+                                   
+                                    <p>{{ services.description }}</p>
+                                    
+                                </div>
+                                <!-- /COLLAPSE CONTENT INNER -->
+                                
+                                
+                            </div>
+                            <!-- /COLLAPSE CONTENT -->
+                            
+                            
+                        </li>
+                        <!-- /SERVICE ITEM -->
+                        
+                        
+                    </ul>
+                    {% endfor %}
+                    <!-- /SERVICE LIST -->
+
+
+                </section>
+                <!-- /SERVICE -->
+                
+                
+                <!-- WORK -->
+                <section id="work">
+
+
+                    <h3 class="headline scroll-animated">Latest Work</h3>
+                    
+                    
+                    <!-- SHOWCASE -->
+                    <div class="showcase">
+                       
+                       
+                        <!-- ITEM -->
+                        {% for work in works %}
+                        <div class="item scroll-animated">
+                          
+                          
+                            <!-- LIGHTBOX LINK -->
+                            <a href="#" data-featherlight="#item-{{ forloop.counter }}-lightbox">
+                            
+                            
+                                <!-- INFO -->
+                                <div class="info">
+
+
+                                    <!-- CONTAINER MID -->
+                                    <div class="container-mid">
+
+                                        <h5>{{ work.name }}</h5>
+                                        <p>{{ work.work_type }}</p>
+
+                                    </div>
+                                    <!-- /CONTAINER MID -->
+
+
+                                </div>
+                                <!-- /INFO -->
+
+
+                           
+                            </a>
+                            <!-- /LIGHTBOX LINK -->
+                            
+                            
+                            <!-- LIGHTBOX -->
+                            <a href="#" data-featherlight="#item-{{ forloop.counter }}-lightbox">
+                                <div id="item-{{ forloop.counter }}-lightbox" class="work-lightbox">
+                               
+                               
+                                    <img class="img-responsive" src="{{ work.image.url }}" alt="image">
+                                
+                                    <h3>{{ work.name }}</h3>
+                                    <div class="button-container">
+                                        <a href="{{ work.github_link }}"><button class="button">GitHub</button>
+                                        <a href="{{ work.website_link }}"><button class="button">Website</button>
+                                    </div>
+                                  
+                                
+                                    <p>{{ work.description }}</p>
+                                
+                                
+                                </div>
+                            </a>
+                            <!-- /LIGHTBOX -->
+                            
+                            
+                        </div>
+                        {% endfor %}
+                        <!-- /ITEM -->
+                        
+                        
+                    </div>
+                    <!-- /SHOWCASE -->
+
+
+                </section>
+                <!-- /WORK -->
+                
+                
+                <!-- CONTACT -->
+                <section id="contact">
+
+
+                    <h3 class="headline scroll-animated">Contact Me</h3>
+                    
+                    
+                    <!-- CONTACT FORM --> 
+                    <form id="contact-form" action="static/php/contact.php" method="post">
+
+                       
+                        <input id="contact-form-name" type="text" name="name" class="form-control scroll-animated" placeholder="* Your Name">
+                        
+                        <input id="contact-form-email" type="text" name="email" class="form-control scroll-animated" placeholder="* Your Email">
+                        
+                        <!-- PHANTOM ELEMENT ( HONEYPOT CAPTCHA FOR SECURITY ) -->
+                        <div class="fhp-input"><input id="contact-form-company" type="text" name="company" class="form-control"></div>
+                        <!-- /PHANTOM ELEMENT ( HONEYPOT CAPTCHA FOR SECURITY ) -->
+                        
+                        <textarea id="contact-form-message" name="message" class="form-control scroll-animated" placeholder="* Your Message"></textarea>
+                        
+                        <button type="submit" class="form-control scroll-animated">Send Message<div class="circle"><i class="fa fa-angle-right" aria-hidden="true"></i><i class="fa fa-angle-right" aria-hidden="true"></i></div></button>
+                        
+                        <div class="success-message"><i class="fa fa-check" aria-hidden="true"></i>The Email was Sent Successfully!</div>
+
+                   
+                    </form>
+                    <!-- /CONTACT FORM --> 
+
+
+                </section>
+                <!-- /CONTACT -->
+                
+                
+                <!-- FOOTER -->
+                <section id="footer">
+                
+                   
+                    <!-- SOCIAL ICONS -->
+                    <ul class="social-icons scroll-animated">
+                       
+                       
+                        <li><a href="https://www.facebook.com/walidayaankawsar"><i class="fa fa-facebook" aria-hidden="true"></i><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                        <li><a href="https://github.com/wak96"><i class="fa fa-github" aria-hidden="true"></i><i class="fa fa-github" aria-hidden="true"></i></a></li>
+                        <li><a href="https://Wa.me/+8801521759396"><i class="fa fa-whatsapp" aria-hidden="true"></i><i class="fa fa-whatsapp" aria-hidden="true"></i></a></li>
+                        <li><a href="https://www.linkedin.com/in/walid-ayaan-kawsar"><i class="fa fa-linkedin" aria-hidden="true"></i><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                        
+                        
+                    </ul>
+                    <!-- /SOCIAL ICONS -->
+
+
+                </section>
+                <!-- /FOOTER -->
+
+
+            </div>
+            <!-- /CONTENT AREA INNER -->
+
+
+        </div>
+        <!-- /CONTENT AREA -->
+        
+        
+        <!-- JAVASCRIPTS -->
+        <script type="text/javascript" src="static/js/plugins.js"></script>
+        <script type="text/javascript" src="static/js/main.js"></script>
+   
+   
+    </body> 
+    
+    
+</html>
