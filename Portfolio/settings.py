@@ -38,7 +38,23 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Home'
+    'cloudinary',
+    'cloudinary_storage',
 ]
+
+
+
+CLOUDINARY_STORAGE = {
+  'CLOUD_NAME': 'kawsar',
+  'API_KEY': '936591955183888',
+  'API_SECRET': '3ILiN-SNraRS3tU_5syLlu93vqE',
+}
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+
+
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
