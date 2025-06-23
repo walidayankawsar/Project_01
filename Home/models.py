@@ -1,9 +1,6 @@
 from django.db import models
 
 # Create your models here.
-from django.db import models
-
-# Create your models here.
 
 
 
@@ -29,3 +26,8 @@ class Services(models.Model):
 
 class Profile(models.Model):
     picture = models.ImageField(upload_to='images/', default='images/default.jpg')
+
+
+class MediaFile(models.Model):
+    filename = models.CharField(max_length=255)
+    file_data = models.TextField() 

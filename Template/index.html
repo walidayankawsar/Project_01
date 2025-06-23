@@ -99,7 +99,7 @@
                     <h3 class="headline scroll-animated">About Me</h3>
                     
                     <div class="profile-picture scroll-animated">
-                        <img src="{{ profile.picture.url }}" alt="Profile Picture">
+                        <img src="data:image/png;base64,{{ profile.picture.url }}" alt="Profile Picture">
                     </div>
                     
                     
@@ -123,7 +123,7 @@
                     <div class="row clients scroll-animated">
                             
                         {% for client in clients %}    
-                        <div class="col-md-3 col-xs-6"><img class="img-responsive" src="{{client.Picture.url}}" alt="client"></div>
+                        <div class="col-md-3 col-xs-6"><img class="img-responsive" src="data:image/png;base64,{{client.Picture.url}}" alt="client"></div>
                         {% endfor %}
                             
                     </div>
@@ -226,7 +226,7 @@
                                 <div id="item-{{ forloop.counter }}-lightbox" class="work-lightbox">
                                
                                
-                                    <img class="img-responsive" src="{{ work.image.url }}" alt="image">
+                                    <img class="img-responsive" src="data:image/png;base64,{{ work.image.url }}" alt="image">
                                 
                                     <h3>{{ work.name }}</h3>
                                     <div class="button-container">
