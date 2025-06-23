@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from . models import Clients, Work, Services, Profile, MediaFile,
+from . models import Clients, Work, Services, Profile, MediaFile
 from django.http import HttpResponse
 import base64
 
