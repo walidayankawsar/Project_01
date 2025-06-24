@@ -164,14 +164,15 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR/'Media'
 
 
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-
 #CLOUDINARY_STORAGE = {
     #'CLOUD_NAME': 'danzhjiew',
     #'API_KEY': '936591955183888',
     #'API_SECRET': '3ILiN-SNraRS3tU_5syLlu93vqE',
 #}
 
+from dotenv import load_dotenv
+
+load_dotenv() 
 
 CLOUDINARY_STORAGE = {
     'CLOUD_NAME': os.getenv('CLOUDINARY_CLOUD_NAME'),
@@ -179,6 +180,7 @@ CLOUDINARY_STORAGE = {
     'API_SECRET': os.getenv('CLOUDINARY_API_SECRET'),
 }
 
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 
 
