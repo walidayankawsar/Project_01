@@ -18,14 +18,15 @@ def send_message(request):
         # Getting user input from the form
         name = request.POST.get('name')
         email = request.POST.get('email')
+        phone = request.POST.get('phone')
         message = request.POST.get('message')
 
         # Creating the full email message body
-        full_message = f"""
-        A new message has been received from your website contact form.
+        full_message = f"""A new message has been received from your website contact form.
 
         Name: {name}
         Email: {email}
+        Phone: {phone}
         Message:
         {message}
         """
