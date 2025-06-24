@@ -263,9 +263,10 @@
                     
                     
                     <!-- CONTACT FORM --> 
-                    <form id="contact-form" action="static/php/contact.php" method="post">
+                    <form id="contact-form" method="POST" action="{% url 'send_message' %}">
 
-                       
+
+                        {% csrf_token %}
                         <input id="contact-form-name" type="text" name="name" class="form-control scroll-animated" placeholder="* Your Name">
                         
                         <input id="contact-form-email" type="text" name="email" class="form-control scroll-animated" placeholder="* Your Email">
