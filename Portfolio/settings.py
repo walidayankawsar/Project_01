@@ -189,8 +189,6 @@ CSRF_TRUSTED_ORIGINS = [
     'https://walid-ayaan-kawsar.onrender.com',
 ]
 
-test
-
 
 
 
