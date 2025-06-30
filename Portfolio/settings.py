@@ -185,9 +185,12 @@ DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 
 
-CSRF_TRUSTED_ORIGINS = [
-    'https://walid-ayaan-kawsar.onrender.com',
-]
+# CSRF_TRUSTED_ORIGINS = [
+#     'https://walid-ayaan-kawsar.onrender.com',
+# ]
+
+
+
 
 
 
