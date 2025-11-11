@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-#57qwzu$+2rdoce9f5l!@i!1k)=^5gw3^uu*e%lhjzf@k&4u$-'
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -125,3 +125,24 @@ MEDIA_ROOT = BASE_DIR / 'Media'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+import os
+import environ
+# Initialize environ
+
+env = environ.Env()
+env.read_env(BASE_DIR / ".env")
+
+SECRET_KEY = 'django-insecure-#57qwzu$+2rdoce9f5l!@i!1k)=^5gw3^uu*e%lhjzf@k&4u$-'
+SECRET_KEY = env("SECRET_KEY", default="fallback-key" )
+DEBUG = env.bool("DEBUG", default=False)
+
+# Email send
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
