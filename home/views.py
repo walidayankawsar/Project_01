@@ -1,5 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from . models import Clients, Work, Services, Profile
+from django.contrib import messages
+from django.core.mail import send_mail
+from . forms import ContactForm
+from django.conf import settings
 
 def mainpage(request):
     client = Clients.objects.all()
@@ -9,41 +13,46 @@ def mainpage(request):
     return render(request, 'index.html', {'clients':client,'works':work,'service':services, 'profile':profile})
 
 
-from django.shortcuts import render, redirect
-from django.core.mail import send_mail
-from django.conf import settings
+def contact(request):
+    if request.method == "POST":
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            contact = form.save()
 
-def send_message(request):
-    if request.method == 'POST':
-        # Getting user input from the form
-        name = request.POST.get('name')
-        email = request.POST.get('email')
-        phone = request.POST.get('phone')
-        message = request.POST.get('message')
+            subject = "New Contact Message"
+            message = [
+                f"Name: {contact.name}",
+                f"Email: {contact.email}",
+                f"Phone: {contact.phone}",
+                "Message:",
+                contact.message  # user লিখা message
+            ]
 
-        # Creating the full email message body
-        full_message = f"""A new message has been received from your website contact form.
+            # সব lines একসাথে যোগ করতে চাইলে
+            message = "\n".join(message)
 
-        Name: {name}
-        Email: {email}
-        Phone: {phone}
-        Message:
-        {message}
-        """
 
-        # Sending the email using Django's send_mail function
-        send_mail(
-            subject='New Message from Website',
-            message=full_message,
-            from_email=settings.EMAIL_HOST_USER,
-            recipient_list=[settings.EMAIL_HOST_USER],
-            fail_silently=False,
-        )
 
-        # Redirecting to a success page after sending
-        return redirect('message_sent')
 
-    return render(request, 'contact.html')
+            send_mail(
+                subject,
+                message,
+                settings.EMAIL_HOST_USER,
+                [settings.EMAIL_HOST_USER],
+                fail_silently=False,
+            )
+
+
+            messages.success(request, "Your message sent successfully.")
+            return redirect('mainpage')
+        else:
+            messages.error(request, "Please correct the errors below")
+    else:
+        form = ContactForm()
+    return redirect('contact')
 
 
     
+
+
+
