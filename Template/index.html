@@ -261,6 +261,21 @@
 
                     <h3 class="headline scroll-animated">Contact Me</h3>
                     
+                    
+                    <!-- CONTACT FORM --> 
+                    <form id="contact-form" method="POST" action="{% url 'contact' %}">
+                        {% csrf_token %}
+                        <input id="contact-form-name" type="text" name="name" class="form-control scroll-animated" placeholder="Your Name">
+                        <input id="contact-form-email" type="text" name="email" class="form-control scroll-animated" placeholder="Your Email">
+                        <input id="contact-form-phone" type="tel" name="phone" class="form-control scroll-animated" placeholder="Your Phone Number">
+                        <textarea id="contact-form-message" name="message" class="form-control scroll-animated" placeholder="Your Message"></textarea>
+                        <button type="submit" class="form-control scroll-animated">Send Message<div class="circle"><i class="fa fa-angle-right" aria-hidden="true"></i><i class="fa fa-angle-right" aria-hidden="true"></i></div></button>
+                        <div class="success-message"><i class="fa fa-check" aria-hidden="true"></i>The Email was Sent Successfully!</div>
+                    </form>
+                    <!-- /CONTACT FORM --> 
+                </section>
+                <!-- /CONTACT -->
+                    
                 
                 
                 <!-- FOOTER -->
