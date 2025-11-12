@@ -32,5 +32,9 @@ class Photo(models.Model):
     title = models.CharField(max_length=100)
     image = models.ImageField(upload_to='photos/')
 
-
+class Contact(models.Model):
+    name = models.CharField(max_length=100, blank=True, null=True)
+    email = models.CharField(max_length=100, blank=True, null=True)
+    phone = models.CharField(max_length=20, blank=True, null=True)
+    message = models.TextField(blank=True, null=True)
 
