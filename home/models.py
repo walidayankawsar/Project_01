@@ -38,3 +38,10 @@ class Contact(models.Model):
     phone = models.CharField(max_length=20, blank=True, null=True)
     message = models.TextField(blank=True, null=True)
 
+
+class Social(models.Model):
+    facebook = models.CharField(max_length=200, blank=True, null=True)
+    github_username = models.CharField(max_length=50, blank=True, null=True)
+    whatsapp_number = models.CharField(max_length=20, blank=True, null=True)
+    linkedin = models.CharField(max_length=200, blank=True, null=True)
+
