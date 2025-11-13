@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from . models import Clients, Work, Services, Profile
+from . models import Clients, Work, Services, Profile, Social
 from django.contrib import messages
 from django.core.mail import send_mail
 from . forms import ContactForm
@@ -10,7 +10,8 @@ def mainpage(request):
     work = Work.objects.all()
     services = Services.objects.all()
     profile = Profile.objects.first()
-    return render(request, 'index.html', {'clients':client,'works':work,'service':services, 'profile':profile})
+    links = Social.objects.first()
+    return render(request, 'index.html', {'clients':client,'works':work,'service':services, 'profile':profile, 'link':links})
 
 
 def contact(request):
